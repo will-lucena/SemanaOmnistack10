@@ -51,7 +51,7 @@ function App() {
   }
 
   return (
-    <div id="#app">
+    <div id="app">
       <aside>
         <strong>Sign up</strong>
         <form onSubmit={handleRegister}>
