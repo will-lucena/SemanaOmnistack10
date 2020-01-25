@@ -19,7 +19,7 @@ module.exports = {
     async store(request, response) {
         const { github_username, stack, latitude, longitude } = request.body;
 
-        let dev = Dev.findOne({ github_username })
+        let dev = await Dev.findOne({ github_username })
 
         if (!dev) {
             const api_response = await axios.get(`https://api.github.com/users/${github_username}`)
@@ -39,7 +39,7 @@ module.exports = {
                 location
             })
         }
-        return response.json({ dev })
+        return response.json(dev)
     },
 
     async update(request, response) {
