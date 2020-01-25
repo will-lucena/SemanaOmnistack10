@@ -3,13 +3,13 @@ const parseStringAsArray = require('../utils/parseStringAsArray.js')
 
 module.exports = {
     async index(request, response) {
-        const { longitude, latitude, techs } = request.query;
+        const { longitude, latitude, stack } = request.query;
 
-        const techsArray = parseStringAsArray(techs)
-        console.log(techsArray)
+        const stackArray = parseStringAsArray(stack)
+        console.log(stackArray)
         const devs = await Dev.find({
-            technologies: {
-                $in: techsArray
+            stack: {
+                $in: stackArray
             },
             location: {
                 $near: {

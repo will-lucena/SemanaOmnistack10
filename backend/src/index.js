@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const routes = require("./routes")
 const dotenv = require('dotenv').config();
+const cors = require('cors')
 
 const app = express();
 
@@ -9,6 +10,8 @@ mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
+app.use(cors())
 app.listen(process.env.PORT);
 app.use(express.json())
 app.use(routes)

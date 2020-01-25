@@ -6,7 +6,7 @@ const DevSchema = new mongoose.Schema({
     github_username: String,
     bio: String,
     avatar_url: String,
-    technologies: [String],
+    stack: [String],
     location:{
         type: PointSchema,
         index: '2dsphere'
